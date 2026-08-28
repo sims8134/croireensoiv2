@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Réserver votre séance découverte offerte | Croire en Soi</title>
+<meta name="description" content="Réservez votre séance découverte offerte ou posez votre question : formulaire de contact et contact@croireensoi.fr. Réponse sous 48 h.">
+<meta property="og:title" content="Contact — Croire en Soi">
+<meta property="og:description" content="Réservez votre séance découverte offerte ou posez votre question : formulaire de contact et contact@croireensoi.fr. Réponse sous 48 h.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://croireensoi.fr/contact.html">
+<meta property="og:image" content="https://croireensoi.fr/assets/img/og-contact.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Yuji+Syuku&family=Zen+Antique&family=Jost:wght@300..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="is-loading">
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-in">
+    <div class="loader-kanji">信</div>
+    <div class="loader-title">Croire en Soi</div>
+    <div class="loader-by">by David Nakamura</div>
+    <div class="loader-rule"></div>
+  </div>
+</div>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="brand" href="index.html"><b>Croire en Soi</b><span>by David Nakamura</span></a>
+    <nav class="nav-desktop" aria-label="Navigation principale">
+      <a href="coaching.html">Coaching</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" aria-expanded="false" aria-controls="drop-pratiques">Pratiques<span class="chev" aria-hidden="true"></span></button>
+        <div class="nav-drop-panel" id="drop-pratiques" hidden>
+          <a href="arts-martiaux.html"><span class="k k--feu" aria-hidden="true">火</span>Arts martiaux</a>
+          <a href="pratiques.html#sport"><span class="k k--terre" aria-hidden="true">土</span>Sport</a>
+          <a href="pratiques.html#bien-etre"><span class="k k--eau" aria-hidden="true">水</span>Bien-être</a>
+          <a href="pratiques.html#yoga"><span class="k k--air" aria-hidden="true">風</span>Yoga</a>
+          <a class="nav-drop-tout" href="pratiques.html">Toutes les pratiques</a>
+        </div>
+      </div>
+      <a href="workshop-bain-froid.html">Workshop</a>
+      <a href="voyages.html">Voyages</a>
+      <a href="services.html">Tarifs</a>
+      <a href="apropos.html">À propos</a>
+      <a class="nav-cta" href="contact.html" aria-current="page">Séance offerte</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="barre-lecture" aria-hidden="true"></div>
+</header>
+
+<nav class="nav-mobile" aria-label="Navigation mobile">
+  <a href="coaching.html">Coaching <small>Corps &amp; esprit</small></a>
+  <a href="pratiques.html">Pratiques <small>火 土 水 風</small></a>
+  <a class="nav-sub" href="arts-martiaux.html"><span class="k k--feu" aria-hidden="true">火</span>Arts martiaux</a>
+  <a class="nav-sub" href="pratiques.html#sport"><span class="k k--terre" aria-hidden="true">土</span>Sport</a>
+  <a class="nav-sub" href="pratiques.html#bien-etre"><span class="k k--eau" aria-hidden="true">水</span>Bien-être</a>
+  <a class="nav-sub" href="pratiques.html#yoga"><span class="k k--air" aria-hidden="true">風</span>Yoga</a>
+  <a href="workshop-bain-froid.html">Workshop bain froid <small>Reset</small></a>
+  <a href="voyages.html">Voyages <small>木 Bois</small></a>
+  <a href="services.html">Tarifs <small>Offres</small></a>
+  <a href="apropos.html">À propos <small>David Nakamura</small></a>
+  <a href="contact.html">Contact <small>Séance offerte</small></a>
+</nav>
+
+<main id="main">
+
+  <section class="hero hero--page">
+    <div class="kanji-bg" aria-hidden="true">結</div>
+    <div class="wrap">
+      <p class="eyebrow rv">Réponse sous 48 h</p>
+      <h1 class="rv rv-d1">Contact</h1>
+      <div class="hero-rule rv rv-d2"></div>
+      <p class="lead rv rv-d2">Réservez votre séance découverte offerte, posez une question
+      ou proposez une intervention en structure. Deux lignes suffisent.</p>
+    </div>
+  </section>
+
+  <section class="section on-light">
+    <div class="wrap grid-2" style="align-items:start">
+      <div class="rv">
+        <p class="eyebrow">Écrivez-nous</p>
+        <form class="form" id="contact-form" novalidate>
+          <!-- Champ honeypot anti-spam : invisible pour les humains -->
+          <div class="hp" aria-hidden="true">
+            <label for="website">Ne pas remplir</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="nom">Votre nom</label>
+            <input type="text" id="nom" name="nom" autocomplete="name" required>
+            <p class="err">Indiquez votre nom (2 caractères minimum).</p>
+          </div>
+          <div class="field">
+            <label for="email">Votre e-mail</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+            <p class="err">Indiquez une adresse e-mail valide.</p>
+          </div>
+          <div class="field">
+            <label for="pratique">Pratique concernée</label>
+            <select id="pratique" name="pratique">
+              <option value="Séance découverte">Séance découverte (offerte)</option>
+              <option value="Arts martiaux">Arts martiaux</option>
+              <option value="Coaching">Coaching</option>
+              <option value="Sport">Sport</option>
+              <option value="Bien-être">Bien-être</option>
+              <option value="Yoga">Yoga</option>
+              <option value="Workshop bain froid">Workshop bain froid</option>
+              <option value="Voyages / retraites">Voyages &amp; retraites</option>
+              <option value="Intervention en structure">Intervention en structure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Votre message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <p class="err">Écrivez quelques mots (10 caractères minimum).</p>
+          </div>
+          <p><button class="btn btn--solid" type="submit">Envoyer</button></p>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <div class="rv rv-d1">
+        <p class="eyebrow">Directement</p>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.2rem)">contact@croireensoi.fr</h2>
+        <p class="muted">Cours et séances à Grabels, aux portes de Montpellier.
+        Interventions en écoles, collèges, centres de loisirs et lieux de vie hospitaliers envisagées à terme.</p>
+        <!-- MODIFIER : téléphone du client à ajouter ici quand confirmé
+        <p><a href="tel:+33XXXXXXXXX">0X XX XX XX XX</a></p> -->
+        <div class="footer-elements" aria-hidden="true" style="margin-top:2rem">水 火 土 風 木</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <h4>Croire en Soi</h4>
+      <p>by David Nakamura — Artiste de vie.<br>Coaching corps-esprit, arts martiaux, yoga et bien-être à Grabels, près de Montpellier.</p>
+      <p><a href="mailto:contact@croireensoi.fr">contact@croireensoi.fr</a></p>
+      <div class="footer-elements" aria-hidden="true">水 火 土 風 木</div>
+    </div>
+    <div>
+      <h4>Pratiques</h4>
+      <ul>
+        <li><a href="arts-martiaux.html">Arts martiaux</a></li>
+        <li><a href="pratiques.html#sport">Sport</a></li>
+        <li><a href="pratiques.html#bien-etre">Bien-être</a></li>
+        <li><a href="pratiques.html#yoga">Yoga</a></li>
+        <li><a href="voyages.html">Voyages &amp; retraites</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Le studio</h4>
+      <ul>
+        <li><a href="coaching.html">L'approche</a></li>
+        <li><a href="workshop-bain-froid.html">Workshop bain froid</a></li>
+        <li><a href="services.html">Offres &amp; tarifs</a></li>
+        <li><a href="blog.html">Journal</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© <span data-year>2026</span> Croire en Soi — David Nakamura. Tous droits réservés.<br>
+      <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span>
+    <!-- MODIFIER : les adresses sont les constantes SOCIAL_INSTAGRAM,
+         SOCIAL_FACEBOOK, WHATSAPP_NUMBER et EMAIL, en tete de
+         assets/js/main.js. Tant qu'une constante est vide, l'icone
+         renvoie vers contact.html — jamais vers « # » (CdC 6.8, 9.3). -->
+    <div class="social">
+      <a data-social="instagram" href="contact.html" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg></a>
+      <a data-social="facebook" href="contact.html" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.2 21V8.2a3.2 3.2 0 0 1 3.2-3.2h1.1"/><path d="M10.2 12.4h7"/></svg></a>
+      <a class="social-mail" data-social="email" href="contact.html" aria-label="Nous ecrire par e-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.6"/><path d="M15.6 12v1.6a2.4 2.4 0 0 0 4.8 0V12a8.4 8.4 0 1 0-3.3 6.7"/></svg></a>
+      <a class="social-whatsapp" data-social="whatsapp" href="contact.html" aria-label="Nous ecrire sur WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.2 3.8h3.1l1.6 3.9-2 1.3a11 11 0 0 0 5.1 5.1l1.3-2 3.9 1.6v3.1a1.6 1.6 0 0 1-1.7 1.6A15.6 15.6 0 0 1 4.6 5.5a1.6 1.6 0 0 1 1.6-1.7z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+
