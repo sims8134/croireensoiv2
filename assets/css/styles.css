@@ -56,11 +56,20 @@
   --ligne:rgba(22,31,25,.14);
   --ligne-sombre:rgba(246,247,241,.16);
 
-  /* Rendu v1 : Marcellus pour les titres, Jost pour les textes.
-     Zen Antique passe en second : Marcellus et Jost n'ont aucun glyphe
-     CJK, le navigateur bascule donc sur elle pour les seuls caracteres
-     manquants, y compris en texte mixte. */
-  --f-display:"Zen Antique","Marcellus",serif;
+  /* Rendu v2 : Zen Antique pour TOUS les titres, Jost pour les textes.
+     Marcellus et Yuji Syuku ont ete retirees du <link> Google Fonts des
+     15 pages : la premiere n'etait plus qu'un repli, la seconde n'etait
+     appelee nulle part. Ne pas les remettre dans la pile sans les
+     recharger.
+     Zen Antique reste en second dans --f-body : Jost n'a aucun glyphe
+     CJK, or les kanji de .nav-mobile a small et de .footer-elements sont
+     rendus en --f-body. Le navigateur bascule sur elle pour ces seuls
+     caracteres, y compris en texte mixte.
+     Couverture laine verifiee sur le subset latin de Zen Antique
+     (unicode-range U+0000-00FF, U+0131, U+0152-0153) : e accent aigu,
+     grave, circonflexe, a, c cedille et le ligature oe sont tous
+     presents. Aucun repli n'est necessaire pour le francais. */
+  --f-display:"Zen Antique",serif;
   --f-body:"Jost","Zen Antique",system-ui,sans-serif;
   --w-light:300;
   --w-regular:400;
@@ -92,7 +101,7 @@ body{
 img{max-width:100%;display:block}
 a{color:inherit}
 h1,h2,h3,h4{font-family:var(--f-display);font-weight:var(--w-regular);line-height:1.15;margin:0 0 .6em}
-h1{font-size:clamp(2.4rem,6vw,4.6rem);letter-spacing:.01em}
+h1{font-size:clamp(2.4rem,6vw,4.6rem);letter-spacing:.02em}
 h2{font-size:clamp(1.9rem,4vw,3rem)}
 h3{font-size:clamp(1.3rem,2.2vw,1.7rem)}
 p{margin:0 0 1.1em}
@@ -191,6 +200,11 @@ strong{font-weight:var(--w-medium)}
 .nav-drop.is-open .nav-drop-btn::after{transform:scaleX(1)}
 
 /* ---------- Menu déroulant « Pratiques » (desktop ≥ 1080 px) ---------- */
+/* min-width portee de 14 a 17 rem : « Activite Physique Adaptee » mesure
+   ~200 px a .94rem, soit ~256 px avec le kanji, le gap et les paddings —
+   14 rem (224 px) le faisait passer a la ligne. Le panneau est en position
+   absolue : il s'etale vers la droite et n'ajoute AUCUN pixel a la barre du
+   header, dont la marge n'est que de ~12 px a 1080 px (voir .nav-desktop). */
 .nav-drop{position:relative;display:flex;align-items:center}
 .nav-drop-btn{
   font-family:inherit;background:none;border:0;cursor:pointer;padding-inline:0;
@@ -203,7 +217,7 @@ strong{font-weight:var(--w-medium)}
 }
 .nav-drop.is-open .nav-drop-btn .chev{transform:rotate(-135deg) translate(-.06em,-.1em)}
 .nav-drop-panel{
-  position:absolute;top:calc(100% + .9rem);left:0;min-width:14rem;z-index:95;
+  position:absolute;top:calc(100% + .9rem);left:0;min-width:17rem;z-index:95;
   background:var(--vigne-2);border:1px solid var(--ligne-sombre);border-radius:var(--r);
   padding:.4rem;display:grid;gap:.1rem;
 }
@@ -218,12 +232,27 @@ strong{font-weight:var(--w-medium)}
   border-top:1px solid var(--ligne-sombre);margin-top:.25rem;padding-top:.75rem!important;
   font-size:.78rem!important;letter-spacing:.16em!important;text-transform:uppercase;color:var(--champagne)!important;
 }
+/* Le panneau porte desormais DEUX pieds de menu (« Toutes les pratiques » et
+   « Interventions en structures »). Sans cette regle chacun tracerait son
+   propre filet, soit deux traits a .25rem d'ecart : le second reprend le
+   groupe ouvert par le premier au lieu d'en ouvrir un nouveau. */
+.nav-drop-tout + .nav-drop-tout{
+  border-top:0;margin-top:0;padding-top:.35rem!important;
+}
 /* Kanji des éléments éclaircis de 22 % : en teinte pure ils tombent à 2,3-2,6:1
-   sur --vigne-2 et se lisent comme des taches. Éclaircis : 3,6 à 4,0:1. */
+   sur --vigne-2 et se lisent comme des taches. Éclaircis : 3,6 à 4,2:1.
+   .k--feu manquait depuis l'origine : 火 est pose sur toutes les pages mais
+   n'avait aucune regle, il heritait donc de --ivoire et tranchait avec les
+   trois autres. Ajoute sur le meme modele. */
+.k--feu{color:color-mix(in srgb, var(--el-feu) 78%, white)}
 .k--terre{color:color-mix(in srgb, var(--el-terre) 78%, white)}
 .k--eau{color:color-mix(in srgb, var(--el-eau) 78%, white)}
 .k--air{color:color-mix(in srgb, var(--el-air) 78%, white)}
 .nav-drop-panel .k{font-family:var(--f-display);font-size:1.15rem;line-height:1}
+/* 育 « eduquer » signe les interventions en structures. Il ne fait pas partie
+   des cinq elements : il prend le champagne des pieds de menu, pas une teinte
+   d'element, pour ne pas laisser croire a une sixieme voie de la roue. */
+.nav-mobile .nav-sub[href="interventions.html"]{color:var(--champagne)}
 /* CTA du header : même règle que les .btn — aplat --pomme, texte blanc. */
 .nav-cta{background:var(--pomme);color:var(--blanc)!important;border:0;border-radius:var(--r-btn);padding:.55rem clamp(.85rem,1.1vw,1.2rem)}
 .nav-cta::after{display:none}
@@ -245,7 +274,10 @@ strong{font-weight:var(--w-medium)}
 .nav-mobile{
   position:fixed;inset:0;background:var(--vigne);z-index:80;display:flex;flex-direction:column;
   justify-content:center;padding:6rem var(--pad) 3rem;
-  overflow-y:auto;overscroll-behavior:contain;  /* 11 entrées : ~616 px pour 667 à 375x667 */
+  overflow-y:auto;overscroll-behavior:contain;  /* 12 entrées : 722 px mesurés
+     pour 667 de haut à 375x667 — le menu défile, c'était déjà le cas à 11
+     entrées (700 px). Aucun débordement horizontal : mesuré à 320, 360,
+     390 et 414 px, scrollWidth == clientWidth. */
   opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s;
 }
 .nav-open .nav-mobile{opacity:1;visibility:visible}
@@ -267,6 +299,9 @@ strong{font-weight:var(--w-medium)}
 .nav-open .nav-mobile a:nth-child(9){transition-delay:.4s}
 .nav-open .nav-mobile a:nth-child(10){transition-delay:.45s}
 .nav-open .nav-mobile a:nth-child(11){transition-delay:.5s}
+/* 12e entree : « Interventions en structures ». Le menu mobile passe de 11 a
+   12 lignes ; il reste en overflow-y:auto, le depassement a 375x667 defile. */
+.nav-open .nav-mobile a:nth-child(12){transition-delay:.55s}
 /* Sous-entrées « Pratiques » : pas de menu déroulant sur mobile, on déplie. */
 .nav-mobile .nav-sub{
   font-family:var(--f-body);font-size:1rem;font-weight:var(--w-light);
@@ -326,6 +361,17 @@ body.nav-open{overflow:hidden}
 .fine-list li{padding:1rem 0;border-bottom:1px solid var(--ligne);display:flex;gap:1.1rem;align-items:baseline}
 .section--dark .fine-list li{border-color:var(--ligne-sombre)}
 .fine-list .n{font-family:var(--f-display);color:var(--pomme-fonce);min-width:2.2rem}
+
+/* Emplacement en attente du texte client (apropos.html, section Parcours).
+   Volontairement voyant : personne ne doit le prendre pour du contenu
+   redige, ni le laisser passer en production. A supprimer avec le bloc
+   quand David aura envoye son texte. */
+.placeholder-attente{
+  font-family:var(--f-body);font-size:.95rem;letter-spacing:.06em;
+  color:var(--pomme-encre);background:color-mix(in srgb, var(--pomme) 12%, transparent);
+  border:1px dashed var(--pomme-fonce);border-radius:var(--r);
+  padding:1.4rem 1.6rem;margin:0;
+}
 .section--dark .fine-list .n{color:var(--pomme)}
 
 /* ---------- images / placeholders ---------- */
@@ -628,6 +674,12 @@ body.is-loading{overflow:hidden}
 .petale .kj{font-size:1.45rem;line-height:1}
 .petale .el{font-size:.6rem;font-weight:var(--w-medium);letter-spacing:.24em;text-transform:uppercase;opacity:.85}
 .petale .pr{font-family:var(--f-display);font-size:.8rem;line-height:1.15;padding-inline:.4rem}
+/* Le petale Terre porte desormais « Activite Physique Adaptee » : 25 signes
+   contre 5 pour « Sport ». A .8rem le libelle passait a 4 lignes et debordait
+   du disque de min(7rem,22vw). A .72rem il tient en 3 lignes (~40 px de haut,
+   le mot le plus long mesure ~47 px pour 99 px utiles) et le disque reste
+   equilibre face aux quatre autres. */
+.petale--terre .pr{font-size:.72rem}
 .petale:hover{filter:brightness(1.12)}
 .petale:focus-visible{outline:2px solid var(--blanc);outline-offset:3px}
 .respire-zone.is-open .petale{
@@ -717,4 +769,8 @@ body.is-loading{overflow:hidden}
   50%{box-shadow:0 0 0 1.4rem transparent}
 }
 @media(prefers-reduced-motion:reduce){.grid-2 img.avatar{animation:none}}
-h1,.loader-title{font-family:var(--f-titre)}
+/* --f-titre n'a jamais existe dans :root. La declaration etait donc
+   invalide au calcul et font-family retombait sur inherit : h1 et le titre
+   du preloader s'affichaient en Jost (herite de body) au lieu de la police
+   de titre, alors que h2/h3/h4 etaient bien en Zen Antique. Corrige. */
+h1,.loader-title{font-family:var(--f-display)}
