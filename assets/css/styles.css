@@ -340,7 +340,15 @@ body.nav-open{overflow:hidden}
 /* ---------- cartes rubriques ---------- */
 .cards{display:grid;gap:1px;background:var(--ligne);border:1px solid var(--ligne)}
 @media(min-width:760px){.cards{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1080px){.cards--5{grid-template-columns:repeat(5,1fr)}.cards--3{grid-template-columns:repeat(3,1fr)}}
+/* .cards--3 bascule des 900 px, .cards--5 seulement a 1080. Les deux
+   partageaient une meme media query a 1080 : trois cartes restaient donc
+   sur deux colonnes de 760 a 1079 px, avec une cellule vide bien visible
+   (fond --ligne) sur interventions, coaching et voyages. A 900 px chaque
+   carte dispose de ~275 px, soit ~217 px de texte hors padding : verifie,
+   aucun debordement. Ne pas refusionner ces deux regles — a 900 px,
+   .cards--5 donnerait cinq colonnes de ~165 px. */
+@media(min-width:900px){.cards--3{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1080px){.cards--5{grid-template-columns:repeat(5,1fr)}}
 .card{
   background:var(--ivoire);padding:2.2rem 1.8rem;position:relative;overflow:hidden;
   text-decoration:none;display:flex;flex-direction:column;min-height:280px;
