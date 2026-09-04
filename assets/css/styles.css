@@ -610,12 +610,19 @@ body.is-loading{overflow:hidden}
     grid-auto-rows:min-content;align-content:center;
     gap:0 clamp(2rem,4vw,5rem);
   }
-  .hero--v1 .eyebrow{grid-area:1/1}
+  /* L'eyebrow occupe les DEUX colonnes. Dans la seule colonne de texte,
+     « Grabels · Montpellier — Corps, mental, émotionnel » demande 624 px
+     (571 de texte + 52,8 de filet et gouttiere) pour 433 disponibles a
+     1024 px et 585 a 1280 : elle passait sur deux lignes a toute largeur
+     desktop. Le cercle occupe une colonne fixe de 468 px, la colonne de
+     texte ne peut donc pas s'elargir — c'est la pleine largeur ou rien.
+     Pas de white-space:nowrap : sous 64 rem l'eyebrow doit se replier. */
+  .hero--v1 .eyebrow{grid-area:1/1/2/-1}
   .hero--v1 h1{grid-area:2/1}
   .hero--v1 .hero-rule{grid-area:3/1;margin-inline:0}
   .hero--v1 .lead{grid-area:4/1;margin-inline:0;max-width:none}
   .hero--v1 .hero-ctas{grid-area:5/1;justify-content:flex-start}
-  .hero--v1 .hero-cercle{grid-column:2;grid-row:1/span 5;align-self:center;display:grid;justify-items:center}
+  .hero--v1 .hero-cercle{grid-column:2;grid-row:2/span 4;align-self:center;display:grid;justify-items:center}
   .hero--v1 .respire-zone{margin:0}
 }
 
