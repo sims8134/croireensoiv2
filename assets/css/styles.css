@@ -361,17 +361,6 @@ body.nav-open{overflow:hidden}
 .fine-list li{padding:1rem 0;border-bottom:1px solid var(--ligne);display:flex;gap:1.1rem;align-items:baseline}
 .section--dark .fine-list li{border-color:var(--ligne-sombre)}
 .fine-list .n{font-family:var(--f-display);color:var(--pomme-fonce);min-width:2.2rem}
-
-/* Emplacement en attente du texte client (apropos.html, section Parcours).
-   Volontairement voyant : personne ne doit le prendre pour du contenu
-   redige, ni le laisser passer en production. A supprimer avec le bloc
-   quand David aura envoye son texte. */
-.placeholder-attente{
-  font-family:var(--f-body);font-size:.95rem;letter-spacing:.06em;
-  color:var(--pomme-encre);background:color-mix(in srgb, var(--pomme) 12%, transparent);
-  border:1px dashed var(--pomme-fonce);border-radius:var(--r);
-  padding:1.4rem 1.6rem;margin:0;
-}
 .section--dark .fine-list .n{color:var(--pomme)}
 
 /* ---------- images / placeholders ---------- */
